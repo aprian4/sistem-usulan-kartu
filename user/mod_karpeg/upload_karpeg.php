@@ -56,7 +56,7 @@
                 if (data == 'ok') {
                     $('#tambahdata').modal('hide');
                     iziToast.success({
-                        title: 'Mantap!',
+                        title: 'Success!',
                         message: 'Data berhasil disimpan',
                         position: 'center'
                     });

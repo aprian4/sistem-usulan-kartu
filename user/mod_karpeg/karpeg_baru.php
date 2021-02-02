@@ -79,7 +79,7 @@
                 position: 'center'
               });
               setTimeout(function() {
-                window.location.replace('?pg=upload');
+                window.location.replace('?pg=upload_karpeg');
               }, 500);
           }
           else {

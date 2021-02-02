@@ -16,9 +16,14 @@ if ($pg == 'suratpengantar') {
     $data  = mysqli_fetch_array($hasil);
     $lastNoTransaksi = $data['last'];
     $lastNoUrut = substr($lastNoTransaksi, 8, 4);
-    $nextNoUrut = $lastNoUrut + 1;
-    $nextNoTransaksi = $today . sprintf('%04s', $nextNoUrut);
-    $ektensi = ['jpg', 'png'];
+    if ($lastNoUrut < 0){
+        $nextNoTransaksi = $today . sprintf('%04s', $lastNoUrut);
+    }else{
+        $nextNoUrut = $lastNoUrut + 1;
+        $nextNoTransaksi = $today . sprintf('%04s', $nextNoUrut);
+    }
+
+    $ektensi = ['pdf'];
     if ($_FILES['sp']['name'] <> '') {
         $logo = $_FILES['sp']['name'];
         $temp = $_FILES['sp']['tmp_name'];
