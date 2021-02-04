@@ -10,6 +10,11 @@
             <a class="nav-link" href="?pg=riwayat"><i class="fas fa-history"></i>
             <span>Riwayat Usulan</span></a>
         </li>
+        <li>
+            <a href="user/logout.php" class="nav-link">
+                  <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+            </a>
+        </li>
     <?php } ?>
 
 

@@ -119,16 +119,16 @@
             iziToast.success({
               title: 'Berhasil!',
               message: 'Anda akan dialihkan',
-              position: 'topRight'
+              position: 'center'
             });
             setTimeout(function() {
               window.location.reload();
             }, 2000);
           } else {
             iziToast.error({
-              title: 'Maaf Bro',
+              title: 'Maaf',
               message: 'NIP atau Password Salah',
-              position: 'topCenter'
+              position: 'center'
             });
           }
         }

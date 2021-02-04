@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <?php 
                         $id_user = $_SESSION['id_user'];
-                        $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and status = '3'");
+                        $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and status = '6'");
                         $jumlah = mysqli_num_rows($query);
                         if($jumlah > 0){
                             echo $jumlah;
@@ -62,7 +62,7 @@
                 <div class="card-body">
                     <?php 
                         $id_user = $_SESSION['id_user'];
-                        $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and status = '2'");
+                        $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and status = '3' or status = '4' or status = '5'");
                         $jumlah = mysqli_num_rows($query);
                         if($jumlah > 0){
                             echo $jumlah;
@@ -86,7 +86,7 @@
                 <div class="card-body">
                     <?php 
                         $id_user = $_SESSION['id_user'];
-                        $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and status = '1'");
+                        $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and status = '1' or status = '2'");
                         $jumlah = mysqli_num_rows($query);
                         if($jumlah > 0){
                             echo $jumlah;

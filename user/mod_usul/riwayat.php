@@ -51,7 +51,7 @@
                                 <?php }else if($usulan['status'] == 4){ ?>
                                        <p><span class="badge badge-info"></i>Usulan sedang diproses oleh BKN Regional 3</span></p>
                                 <?php }else if($usulan['status'] == 5){ ?>
-                                       <p><span class="badge badge-warning"></i>Usulan disetujui dan dokumen bisa diambil di BKPP</span></p>
+                                       <p><span class="badge badge-warning"></i>Usulan disetujui dan dokumen bisa diambil di kantor BKPP</span></p>
                                 <?php } else if($usulan['status'] == 6){ ?>
                                        <p><span class="badge badge-success"></i>Selesai</span></p>
                                 <?php } ?>

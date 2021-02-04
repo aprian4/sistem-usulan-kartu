@@ -19,10 +19,11 @@
                             <form id="form-suratpengantar">
                             <?php 
                                 $id = $_SESSION['id_user'];
-                                $usulan = mysqli_fetch_array(mysqli_query($koneksi, "select * from usulan where id_user = '$id'"));
+                                $jenis_usulan = "karpeg_baru";
+                                $usulan = mysqli_fetch_array(mysqli_query($koneksi, "select * from usulan where id_user = '$id' and jenis_usulan='$jenis_usulan'"));
                                 $idusulan = $usulan['id_usulan'];
                             ?>
-                            <td style="width: 60%">
+                            <td style="width: 50%">
                                 <div class="form-group row mb-2">
                                     <label class="col-sm-12 col-md-12">Surat Pengantar/ Usulan dari Instansi<b> (Max. Ukuran File 2MB dan Format File .pdf)</b></label>
                                 </div>
@@ -53,7 +54,7 @@
 
                         <tr>
                             <form id="form-skcpns">
-                            <td style="width: 60%">
+                            <td style="width: 50%">
                                 <div class="form-group row mb-2">
                                     <label class="col-sm-12 col-md-12">Scan Asli / Fotocopy Legalisir SK CPNS<b> (Max. Ukuran File 2MB dan Format File .pdf)</b></label>
 
@@ -85,7 +86,7 @@
 
                         <tr>
                             <form id="form-skpns">
-                            <td style="width: 60%">
+                            <td style="width: 50%">
                                 <div class="form-group row mb-2">
                                     <label class="col-sm-12 col-md-12">Scan Asli / Fotocopy Legalisir SK PNS<b> (Max. Ukuran File 2MB dan Format File .pdf)</b></label>
                                 </div>
@@ -116,7 +117,7 @@
 
                         <tr>
                             <form id="form-sttpp">
-                            <td style="width: 60%">
+                            <td style="width: 50%">
                                 <div class="form-group row mb-2">
                                     <label class="col-sm-12 col-md-12">Scan Asli / Fotocopy Legalisir STTPP (Surat Tanda Tamat Pendidikan dan Pelatihan) PRAJABATAN<b> (Max. Ukuran File 2MB dan Format File .pdf)</b></label>
                                 </div>
@@ -147,7 +148,7 @@
 
                         <tr>
                             <form id="form-foto">
-                            <td style="width: 60%">
+                            <td style="width: 50%">
                                 <div class="form-group row mb-2">
                                     <label class="col-sm-12 col-md-12">Pas foto hitam putih ukuran 3x4 cm <b> (Max. Ukuran File 2MB dan Format File .jpg)</b></label>
                                 </div>
@@ -185,11 +186,31 @@
                                         <input type="checkbox" name="checkbox" value="check" /> <b>*Dengan ini menyatakan bahwa data yang saya kirim ini merupakan data sebenar-benarnya.</b>
                                     </div>
                                 </div>
-                                
+                                <?php
+                                $berkas1 = "surat pengantar";
+                                $berkas2 = "SK CPNS";
+                                $berkas3 = "SK PNS";
+                                $berkas4 = "STTPP";
+                                $berkas5 = "FOTO";
+                                $jenisberkas = "karpeg_baru";
+                                $cek1 = mysqli_num_rows(mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$berkas1'"));
+                                $cek2 = mysqli_num_rows(mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$berkas2'"));
+                                $cek3 = mysqli_num_rows(mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$berkas3'"));
+                                $cek4 = mysqli_num_rows(mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$berkas4'"));
+                                $cek5 = mysqli_num_rows(mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$berkas5'"));
+                            if(($cek1 > 0) && ($cek2 > 0) && ($cek3 > 0) && ($cek4 > 0) && ($cek5 > 0)){
+                            ?>
                                 <div class="form-group">
                                     <center><button id="btnkirim" type="submit" class="btn btn-primary btn-lg mt-2" 
                                     onclick="if(!this.form.checkbox.checked){alert('Silahkan klik checkbox sebelum menekan tombol kirim!');return false}">KIRIM USULAN</button></center>
                                 </div>
+                            <?php }else{ ?>
+                                <div>
+                                    <center><button type="submit" class="btn btn-primary btn-lg mt-2" 
+                                    onclick="alert('Tombol akan aktif setelah semua berkas persyaratan diupload')" disabled="disabled">KIRIM USULAN</button></center>
+                                </div>
+                            <?php }?>
+
                             </form>
     </div>
 </div>
@@ -360,6 +381,50 @@
                     iziToast.error({
                         title: 'Gagal!',
                         message: 'Pastikan file kurang dari 2 MB, dan format file .jpg',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                }
+                //$('#bodyreset').load(location.href + ' #bodyreset');
+            }
+        });
+        return false;
+
+
+    });
+
+    $('#form-skcpns').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'user/mod_karpeg/crud_upload.php?pg=skcpns',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            beforeSend: function() {
+                $('form button').on("click", function(e) {
+                    e.preventDefault();
+                });
+            },
+            success: function(data) {
+                if (data == 'ok') {
+                    $('#tambahdata').modal('hide');
+                    iziToast.success({
+                        title: 'Success!',
+                        message: 'Data berhasil disimpan',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+
+                } else {
+                    iziToast.error({
+                        title: 'Gagal!',
+                        message: 'Pastikan file kurang dari 2 MB, dan format file .pdf',
                         position: 'center'
                     });
                     setTimeout(function() {
