@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Login Sistem Usulan Kartu</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/favicon.png">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
@@ -41,7 +42,7 @@
               <img src="assets/img/logo/logo-bkpp.png" alt="logo" width="200">
             </div>
 
-            <div class="card card-primary">
+            <div class="card card-info">
              
 
               <div class="card-body">
@@ -70,7 +71,7 @@
                   </div> -->
 
                   <div class="form-group">
-                    <button name="login" type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                    <button name="login" type="submit"  style="background-color: #00acc1" class="btn btn-info btn-lg btn-block" tabindex="4">
                       Login
                     </button>
                   </div>
