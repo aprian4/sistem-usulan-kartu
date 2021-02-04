@@ -1,9 +1,26 @@
  <?php 
     $id_user = $_SESSION['id_user'];
-    $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and status = '1'");
-    $cek_status = mysqli_num_rows($query);
+    $query = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and jenis_usulan = 'karpeg_baru' and status = '1'");
+    $cek1 = mysqli_num_rows($query);
+    $query2 = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and jenis_usulan = 'karpeg_baru' and status = '2'");
+    $cek2 = mysqli_num_rows($query2);
 
-    if($cek_status <= 0){
+    $query3 = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and jenis_usulan = 'karpeg_pengganti' and status = '1'");
+    $cek3 = mysqli_num_rows($query3);
+    $query4 = mysqli_query($koneksi, "select * from usulan where id_user = '$id_user' and jenis_usulan = 'karpeg_pengganti' and status = '2'");
+    $cek4 = mysqli_num_rows($query4);
+
+
+
+if($cek1 > 0){?>
+  <script>window.location.replace('?pg=karpeg_baru');</script>
+<?php } else if($cek2 > 0){?>
+  <script>window.location.replace('?pg=upload_karpeg');</script>
+<?php } else if($cek3 > 0){ ?>
+  <script>window.location.replace('?pg=karpeg_pengganti');</script>
+<?php } else if($cek4 > 0){?>
+  <script>window.location.replace('?pg=upload_karpeg_pengganti');</script>
+<?php  }else {
  ?>
     
 <div class="row">
@@ -84,10 +101,4 @@
     
 </script>
 
-<?php
-  }else{?>
-    <script>window.location.replace('?pg=karpeg_baru');</script>
-  <?php
-}
-
- ?>
+<?php } ?>

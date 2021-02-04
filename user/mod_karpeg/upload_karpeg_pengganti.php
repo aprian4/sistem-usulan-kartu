@@ -3,7 +3,7 @@
     <div class="col-12 col-sm-12 col-lg-12">
         <div class="card author-box card-primary">
             <div class="card-header">
-                <h4>Upload Persyaratan Pembuatan Kartu Pegawai Baru</h4>
+                <h4>Upload Persyaratan Pembuatan Kartu Pegawai Pengganti</h4>
             </div>
             <div class="card-body">
             <div class="table-responsiv">
@@ -29,7 +29,7 @@
                             </td>
                             <?php
                                 $namaberkas = "surat pengantar";
-                                $jenisberkas = "karpeg_baru";
+                                $jenisberkas = "karpeg_pengganti";
                                 $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
                                 $upload = mysqli_fetch_array($queryberkas);
                                 $cek_berkas = mysqli_num_rows($queryberkas);
@@ -61,7 +61,7 @@
                             </td>
                             <?php
                                 $namaberkas = "SK CPNS";
-                                $jenisberkas = "karpeg_baru";
+                                $jenisberkas = "karpeg_pengganti";
                                 $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
                                 $upload = mysqli_fetch_array($queryberkas);
                                 $cek_berkas = mysqli_num_rows($queryberkas);
@@ -92,7 +92,7 @@
                             </td>
                             <?php
                                 $namaberkas = "SK PNS";
-                                $jenisberkas = "karpeg_baru";
+                                $jenisberkas = "karpeg_pengganti";
                                 $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
                                 $upload = mysqli_fetch_array($queryberkas);
                                 $cek_berkas = mysqli_num_rows($queryberkas);
@@ -123,7 +123,7 @@
                             </td>
                             <?php
                                 $namaberkas = "STTPP";
-                                $jenisberkas = "karpeg_baru";
+                                $jenisberkas = "karpeg_pengganti";
                                 $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
                                 $upload = mysqli_fetch_array($queryberkas);
                                 $cek_berkas = mysqli_num_rows($queryberkas);
@@ -154,7 +154,7 @@
                             </td>
                             <?php
                                 $namaberkas = "FOTO";
-                                $jenisberkas = "karpeg_baru";
+                                $jenisberkas = "karpeg_pengganti";
                                 $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
                                 $upload = mysqli_fetch_array($queryberkas);
                                 $cek_berkas = mysqli_num_rows($queryberkas);
@@ -169,6 +169,99 @@
                             <td>
                             <div class="col-sm-12">
                                     <input id="foto" type="file" name="foto" required="required">
+                                    <button id="btnlanjut" type="submit" class="btn btn-primary">Upload</button>
+                            <?php } ?>
+                            </div>
+                            </td>
+                            </form>
+                        </tr>
+
+                        <tr>
+                            <form id="form-lampiranx">
+                            <td style="width: 60%">
+                                <div class="form-group row mb-2">
+                                    <label class="col-sm-12 col-md-12">Scan Lampiran X<b> (Max. Ukuran File 2MB dan Format File .pdf)</b></label>
+                                </div>
+                            </td>
+                            <?php
+                                $namaberkas = "Lampiran X";
+                                $jenisberkas = "karpeg_pengganti";
+                                $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
+                                $upload = mysqli_fetch_array($queryberkas);
+                                $cek_berkas = mysqli_num_rows($queryberkas);
+                            ?>
+                            <?php if ($cek_berkas > 0){ ?>
+                                <td><a style="color:#fff" target="_blank" class="lihat btn btn-success btn-sm" href= "user/mod_karpeg/<?= $upload['path'] ?>" role="button"><i class="fas fa-eye"></i> Lihat</a>
+
+
+                                    <a style="color:#fff" target="_blank" class="hapus btn btn-danger btn-sm" data-id="<?= $upload['id_berkas'] ?>" role="button"><i class="fas fa-times-circle"></i> Batal</a>
+                            </td>
+                            <?php } else { ?>
+                            <td>
+                            <div class="col-sm-12">
+                                    <input id="lampiranx" type="file" name="lampiranx" required="required">
+                                    <button id="btnlanjut" type="submit" class="btn btn-primary">Upload</button>
+                            <?php } ?>
+                            </div>
+                            </td>
+                            </form>
+                        </tr>
+
+                        <tr>
+                            <form id="form-lampiranxi">
+                            <td style="width: 60%">
+                                <div class="form-group row mb-2">
+                                    <label class="col-sm-12 col-md-12">Scan Lampiran XI<b> (Max. Ukuran File 2MB dan Format File .pdf)</b></label>
+                                </div>
+                            </td>
+                            <?php
+                                $namaberkas = "Lampiran XI";
+                                $jenisberkas = "karpeg_pengganti";
+                                $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
+                                $upload = mysqli_fetch_array($queryberkas);
+                                $cek_berkas = mysqli_num_rows($queryberkas);
+                            ?>
+                            <?php if ($cek_berkas > 0){ ?>
+                                <td><a style="color:#fff" target="_blank" class="lihat btn btn-success btn-sm" href= "user/mod_karpeg/<?= $upload['path'] ?>" role="button"><i class="fas fa-eye"></i> Lihat</a>
+
+
+                                    <a style="color:#fff" target="_blank" class="hapus btn btn-danger btn-sm" data-id="<?= $upload['id_berkas'] ?>" role="button"><i class="fas fa-times-circle"></i> Batal</a>
+                            </td>
+                            <?php } else { ?>
+                            <td>
+                            <div class="col-sm-12">
+                                    <input id="lampiranxi" type="file" name="lampiranxi" required="required">
+                                    <button id="btnlanjut" type="submit" class="btn btn-primary">Upload</button>
+                            <?php } ?>
+                            </div>
+                            </td>
+                            </form>
+                        </tr>
+
+                        <tr>
+                            <form id="form-kehilangan">
+                            <td style="width: 60%">
+                                <div class="form-group row mb-2">
+                                    <label class="col-sm-12 col-md-12">Scan Surat Kehilangan dari Kepolisian <b> (Max. Ukuran File 2MB dan Format File .pdf)</b</label>
+                                </div>
+                            </td>
+                            <?php
+                                $namaberkas = "Surat Kehilangan";
+                                $jenisberkas = "karpeg_pengganti";
+                                $queryberkas = mysqli_query($koneksi, "select * from berkas where id_usulan='$idusulan' and jenis_berkas = '$jenisberkas' and nama_berkas = '$namaberkas'");
+                                $upload = mysqli_fetch_array($queryberkas);
+                                $cek_berkas = mysqli_num_rows($queryberkas);
+                            ?>
+                            <?php if ($cek_berkas > 0){ ?>
+                                <td><a style="color:#fff" target="_blank" class="lihat btn btn-success btn-sm" href= "user/mod_karpeg/<?= $upload['path'] ?>" role="button"><i class="fas fa-eye"></i> Lihat</a>
+
+
+                                    <a style="color:#fff" target="_blank" class="hapus btn btn-danger btn-sm" data-id="<?= $upload['id_berkas'] ?>" role="button"><i class="fas fa-times-circle"></i> Batal</a>
+                            </td>
+                            <?php } else { ?>
+                            <td>
+                            <div class="col-sm-12">
+                                    <input id="kehilangan" type="file" name="kehilangan" required="required">
                                     <button id="btnlanjut" type="submit" class="btn btn-primary">Upload</button>
                             <?php } ?>
                             </div>
@@ -201,7 +294,7 @@
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'user/mod_karpeg/crud_upload.php?pg=suratpengantar',
+            url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=suratpengantar',
             data: new FormData(this),
             processData: false,
             contentType: false,
@@ -245,7 +338,7 @@
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'user/mod_karpeg/crud_upload.php?pg=skpns',
+            url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=skpns',
             data: new FormData(this),
             processData: false,
             contentType: false,
@@ -290,7 +383,7 @@
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'user/mod_karpeg/crud_upload.php?pg=sttpp',
+            url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=sttpp',
             data: new FormData(this),
             processData: false,
             contentType: false,
@@ -334,7 +427,7 @@
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'user/mod_karpeg/crud_upload.php?pg=foto',
+            url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=foto',
             data: new FormData(this),
             processData: false,
             contentType: false,
@@ -374,6 +467,138 @@
 
     });
 
+    $('#form-lampiranx').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=lampiranx',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            beforeSend: function() {
+                $('form button').on("click", function(e) {
+                    e.preventDefault();
+                });
+            },
+            success: function(data) {
+                if (data == 'ok') {
+                    $('#tambahdata').modal('hide');
+                    iziToast.success({
+                        title: 'Success!',
+                        message: 'Data berhasil disimpan',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+
+                } else {
+                    iziToast.error({
+                        title: 'Gagal!',
+                        message: 'Pastikan file kurang dari 2 MB, dan format file .pdf',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                }
+                //$('#bodyreset').load(location.href + ' #bodyreset');
+            }
+        });
+        return false;
+
+
+    });
+
+    $('#form-lampiranxi').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=lampiranxi',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            beforeSend: function() {
+                $('form button').on("click", function(e) {
+                    e.preventDefault();
+                });
+            },
+            success: function(data) {
+                if (data == 'ok') {
+                    $('#tambahdata').modal('hide');
+                    iziToast.success({
+                        title: 'Success!',
+                        message: 'Data berhasil disimpan',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+
+                } else {
+                    iziToast.error({
+                        title: 'Gagal!',
+                        message: 'Pastikan file kurang dari 2 MB, dan format file .pdf',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                }
+                //$('#bodyreset').load(location.href + ' #bodyreset');
+            }
+        });
+        return false;
+
+
+    });
+
+    $('#form-kehilangan').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=kehilangan',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            beforeSend: function() {
+                $('form button').on("click", function(e) {
+                    e.preventDefault();
+                });
+            },
+            success: function(data) {
+                if (data == 'ok') {
+                    $('#tambahdata').modal('hide');
+                    iziToast.success({
+                        title: 'Success!',
+                        message: 'Data berhasil disimpan',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+
+                } else {
+                    iziToast.error({
+                        title: 'Gagal!',
+                        message: 'Pastikan file kurang dari 2 MB, dan format file .pdf',
+                        position: 'center'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                }
+                //$('#bodyreset').load(location.href + ' #bodyreset');
+            }
+        });
+        return false;
+
+
+    });
+
 
       $('#table-1').on('click', '.hapus', function() {
         var id = $(this).data('id');
@@ -387,7 +612,7 @@
         }).then((result) => {
             if (result) {
                 $.ajax({
-                    url: 'user/mod_karpeg/crud_upload.php?pg=hapus',
+                    url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=hapus',
                     method: "POST",
                     data: 'id_berkas=' + id,
                     success: function(data) {
@@ -410,7 +635,7 @@
       e.preventDefault();
       $.ajax({
         type: 'POST',
-        url: 'user/mod_karpeg/crud_upload.php?pg=kirim',
+        url: 'user/mod_karpeg/crud_upload_pengganti.php?pg=kirim',
         data: $(this).serialize(),
         success: function(data) {
           if (data == "ok") {

@@ -3,10 +3,10 @@
     <div class="col-12 col-sm-12 col-lg-12">
         <div class="card author-box card-primary">
             <div class="card-header">
-                <h4>FORM PEMBUATAN KARTU PEGAWAI BARU</h4>
+                <h4>FORM PEMBUATAN KARTU PEGAWAI PENGGANTI</h4>
             </div>
             <div class="card-body">
-                            <form id="form-karpeg_baru">
+                            <form id="form-karpeg_pengganti">
 
                                 <?php 
                                     $id_user = $_SESSION['id_user'];
@@ -65,11 +65,11 @@
 </div>
 </div>
 <script>
-     $('#form-karpeg_baru').submit(function(e) {
+     $('#form-karpeg_pengganti').submit(function(e) {
       e.preventDefault();
       $.ajax({
         type: 'POST',
-        url: 'user/mod_karpeg/crud_karpeg.php?pg=karpeg_baru',
+        url: 'user/mod_karpeg/crud_karpeg.php?pg=karpeg_pengganti',
         data: $(this).serialize(),
         success: function(data) {
           if (data == "ok") {
@@ -79,7 +79,7 @@
                 position: 'center'
               });
               setTimeout(function() {
-                window.location.replace('?pg=upload_karpeg');
+                window.location.replace('?pg=upload_karpeg_pengganti');
               }, 500);
           }
           else {

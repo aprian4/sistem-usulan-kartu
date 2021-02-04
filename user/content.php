@@ -20,4 +20,6 @@ if ($pg == '') {
     include "user/mod_usul/riwayat.php"; 
 } elseif ($pg == 'upload_karpeg') {
     include "user/mod_karpeg/upload_karpeg.php"; 
+} elseif ($pg == 'upload_karpeg_pengganti') {
+    include "user/mod_karpeg/upload_karpeg_pengganti.php"; 
 }
