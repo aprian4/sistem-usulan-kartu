@@ -8,14 +8,10 @@ if ($pg == '') {
     include "user/mod_karpeg/karpeg_baru.php";
 } elseif ($pg == 'karpeg_pengganti') {
     include "user/mod_karpeg/karpeg_pengganti.php";
-}elseif ($pg == 'karis') {
-    include "user/mod_usul/karis.php"; 
-} elseif ($pg == 'karsu') {
-    include "user/mod_usul/karsu.php";  
-} elseif ($pg == 'karsu') {
-    include "user/mod_usul/idcard.php"; 
-} elseif ($pg == 'cltn') {
-    include "user/mod_usul/cltn.php"; 
+} elseif ($pg == 'karis_baru') {
+    include "user/mod_karis/karis_baru.php"; 
+}elseif ($pg == 'karis_pengganti') {
+    include "user/mod_karis/karis_pengganti.php"; 
 } elseif ($pg == 'riwayat') {
     include "user/mod_usul/riwayat.php"; 
 } elseif ($pg == 'upload_karpeg') {

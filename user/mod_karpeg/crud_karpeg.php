@@ -10,17 +10,22 @@ $usulan = mysqli_fetch_array(mysqli_query($koneksi, "select * from usulan where 
 $id_usulan = $usulan['id_usulan'];
 
     $data = [
-        'id_usulan'              => $id_usulan,
-        'kontak'              => $_POST['kontak'],
-        'tempat_lahir'              => $_POST['tempat_lahir'],
-        'tgllahir'              => $_POST['tgllahir'],
-        'tmt_cpns'              => $_POST['tmt_cpns']
+        'id_usulan'              => $id_usulan
     ];
     $data2 = [
         'status'              => '2'
     ];
+
+    $data3 = [
+        'kontak'              => $_POST['kontak'],
+        'tempat_lahir'              => $_POST['tempat_lahir'],
+        'tgl_lahir'              => $_POST['tgllahir'],
+        'tmt_cpns'              => $_POST['tmt_cpns']
+    ];
+
     $exec = insert($koneksi, 'karpeg', $data);
     $exec2 = update($koneksi, 'usulan', $data2, ['id_usulan' => $id_usulan]);
+    $exec3 = update($koneksi, 'user', $data3, ['id_user' => $id]);
 
 
     if ($exec) {
@@ -34,18 +39,23 @@ if($pg == 'karpeg_pengganti'){
 $usulan = mysqli_fetch_array(mysqli_query($koneksi, "select * from usulan where id_user = '$id' and jenis_usulan = 'karpeg_pengganti'"));
 $id_usulan = $usulan['id_usulan'];
 
-    $data = [
-        'id_usulan'              => $id_usulan,
-        'kontak'              => $_POST['kontak'],
-        'tempat_lahir'              => $_POST['tempat_lahir'],
-        'tgllahir'              => $_POST['tgllahir'],
-        'tmt_cpns'              => $_POST['tmt_cpns']
+     $data = [
+        'id_usulan'              => $id_usulan
     ];
     $data2 = [
         'status'              => '2'
     ];
+
+    $data3 = [
+        'kontak'              => $_POST['kontak'],
+        'tempat_lahir'              => $_POST['tempat_lahir'],
+        'tgl_lahir'              => $_POST['tgllahir'],
+        'tmt_cpns'              => $_POST['tmt_cpns']
+    ];
+
     $exec = insert($koneksi, 'karpeg', $data);
     $exec2 = update($koneksi, 'usulan', $data2, ['id_usulan' => $id_usulan]);
+    $exec3 = update($koneksi, 'user', $data3, ['id_user' => $id]);
 
 
     if ($exec) {

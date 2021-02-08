@@ -27,9 +27,15 @@ if($_POST['jenis_usulan'] == 'karpeg_baru'){
     } else {
         echo 'gagal';
     }
-}else if($_POST['jenis_usulan'] == 'karpeg_pengganti'){
+}else if($_POST['jenis_usulan'] == 'karis_baru'){
     if ($exec) {
-        echo 'karpeg_pengganti';
+        echo 'karis_baru';
+    } else {
+        echo 'gagal';
+    }
+}else if($_POST['jenis_usulan'] == 'karis_pengganti'){
+    if ($exec) {
+        echo 'karis_pengganti';
     } else {
         echo 'gagal';
     }

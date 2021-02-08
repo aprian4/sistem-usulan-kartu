@@ -1,6 +1,12 @@
 <div class="section-header">
     <h1>Selamat Datang, <?= $user['nama_user'] ?></h1>
 </div>
+<?php 
+    if(($user['tempat_lahir'] == null) || ($user['tgl_lahir'] == null) || ($user['tmt_cpns'] == null) || ($user['kontak'] == null)){
+    include "form_data.php";
+}else{
+ ?>
+
 <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
@@ -99,3 +105,4 @@
         </div>
     </div>
 </div>
+<?php } ?>
