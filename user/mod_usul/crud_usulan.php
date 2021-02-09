@@ -39,5 +39,49 @@ if($_POST['jenis_usulan'] == 'karpeg_baru'){
     } else {
         echo 'gagal';
     }
+}else if($_POST['jenis_usulan'] == 'karsu_baru'){
+    if ($exec) {
+        echo 'karsu_baru';
+    } else {
+        echo 'gagal';
+    }
+}else if($_POST['jenis_usulan'] == 'karsu_pengganti'){
+    if ($exec) {
+        echo 'karsu_pengganti';
+    } else {
+        echo 'gagal';
+    }
+}else if($_POST['jenis_usulan'] == 'idcard_baru'){
+    if ($exec) {
+        echo 'idcard_baru';
+    } else {
+        echo 'gagal';
+    }
+}else if($_POST['jenis_usulan'] == 'idcard_pengganti'){
+    if ($exec) {
+        echo 'idcard_pengganti';
+    } else {
+        echo 'gagal';
+    }
+}else if($_POST['jenis_usulan'] == 'cltn'){
+    if ($exec) {
+        echo 'cltn';
+    } else {
+        echo 'gagal';
+    }
+}else if($_POST['jenis_usulan'] == 'cltn_perpanjang'){
+    if ($exec) {
+        echo 'cltn_perpanjang';
+    } else {
+        echo 'gagal';
+    }
+}else if($_POST['jenis_usulan'] == 'cltn_aktif'){
+    if ($exec) {
+        echo 'cltn_aktif';
+    } else {
+        echo 'gagal';
+    }
 }
+
+
 

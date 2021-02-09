@@ -2,7 +2,7 @@
     <h1>Selamat Datang, <?= $user['nama_user'] ?></h1>
 </div>
 <?php 
-    if(($user['tempat_lahir'] == null) || ($user['tgl_lahir'] == null) || ($user['tmt_cpns'] == null) || ($user['kontak'] == null)){
+    if(($user['tempat_lahir'] == null) || ($user['tgl_lahir'] == null) || ($user['tmt_cpns'] == null) || ($user['kontak'] == null) || ($user['alamat'] == null) || ($user['jabatan'] == null) || ($user['golongan_darah'] == null) || ($user['eselon'] == null)){
     include "form_data.php";
 }else{
  ?>

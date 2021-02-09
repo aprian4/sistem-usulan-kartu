@@ -34,19 +34,79 @@
                                 <div class="form-group row mb-2">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tempat Lahir</label>
                                     <div class="col-sm-12 col-md-5">
-                                        <input type="text" name="tempat_lahir" class="form-control" value="<?php echo empty($user['tempat_lahir']) ? '' : $user['tempat_lahir'] ?>" required>
+                                        <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control" value="<?php echo empty($user['tempat_lahir']) ? '' : $user['tempat_lahir'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tanggal Lahir</label>
                                     <div class="col-sm-12 col-md-5">
-                                        <input type="text" id="tgllahir" name="tgllahir" class="form-control" value="<?php echo empty($user['tgl_lahir']) ? '' : $user['tgl_lahir'] ?>" required>
+                                    <?php 
+                                        if(empty($user['tgl_lahir'])){?>
+                                            <input type="date" name="tgllahir" class="form-control" placeholder="Tanggal Lahir" required>
+                                    <?php  }else{
+                                     ?>
+                                        <input type="text" name="tgllahir" class="form-control" value="<?php echo $user['tgl_lahir'] ?>" required>
+                                    <?php } ?>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-2">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jabatan</label>
+                                    <div class="col-sm-12 col-md-5">
+                                        <input type="text" name="jabatan" class="form-control" value="<?php echo empty($user['jabatan']) ? '' : $user['jabatan'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-2">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Eselon</label>
+                                    <div class="col-sm-12 col-md-5">
+                                    <?php 
+                                    if(empty($user['eselon'])){?>
+                                        <select class='form-control' name='eselon' required>
+                                            <option value=''>Pilih</option>
+                                            <option value='-'>Tidak Ada</option>
+                                            <option value='II'>II</option>
+                                            <option value='III'>III</option>
+                                            <option value='IV'>IV</option>
+                                        </select>                                    
+                                    <?php  }else{
+                                     ?>
+                                        <input type="text" name="eselon" class="form-control" value="<?php echo $user['eselon'] ?>" required>
+                                    <?php } ?>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-2">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Golongan Darah</label>
+                                    <div class="col-sm-12 col-md-5">
+                                    <?php 
+                                    if(empty($user['golongan_darah'])){?>
+                                        <select class='form-control' name='golongan_darah' required>
+                                            <option value=''>Pilih</option>
+                                            <option value='A'>A</option>
+                                            <option value='B'>B</option>
+                                            <option value='AB'>AB</option>
+                                            <option value='O'>O</option>
+                                        </select>                                    
+                                    <?php  }else{
+                                     ?>
+                                        <input type="text" name="golongan_darah" class="form-control" value="<?php echo $user['golongan_darah'] ?>" required>
+                                    <?php } ?>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">TMT CPNS</label>
                                     <div class="col-sm-12 col-md-5">
-                                        <input type="text" name="tmt_cpns" class="form-control" value="<?php echo empty($user['tmt_cpns']) ? '' : $user['tmt_cpns'] ?>" required>
+                                    <?php 
+                                        if(empty($user['tmt_cpns'])){?>
+                                            <input type="date" name="tmt_cpns" class="form-control" placeholder="TMT CPNS" required>
+                                    <?php  }else{
+                                     ?>
+                                        <input type="text" name="tmt_cpns" class="form-control" value="<?php echo $user['tmt_cpns'] ?>" required>
+                                    <?php } ?>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-2">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Alamat</label>
+                                    <div class="col-sm-12 col-md-5">
+                                        <input type="text" name="alamat" class="form-control" value="<?php echo empty($user['alamat']) ? '' : $user['alamat'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">

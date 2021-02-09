@@ -64,3 +64,14 @@ $id_usulan = $usulan['id_usulan'];
         echo 'gagal';
     }
 }
+
+if($pg == 'batal'){
+$jenis_usulan = $_GET['jenis'];
+$usulan = mysqli_fetch_array(mysqli_query($koneksi, "select * from usulan where id_user = '$id' and jenis_usulan = '$jenis_usulan'"));
+$id_usulan = $usulan['id_usulan'];
+
+
+delete($koneksi, 'usulan', ['id_usulan' => $id_usulan]);
+
+header("Location: ../../");
+}

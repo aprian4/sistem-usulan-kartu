@@ -3,14 +3,13 @@
     <div class="col-12 col-sm-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>FORM PEMBUATAN KARTU ISTRI PENGGANTI KARENA HILANG</h4>
+                <h4>FORM USULAN PENGAKTIFAN KEMBALI SETELAH CLTN</h4>
             </div>
             <div class="card-body">
-                            <form id="form-karis_pengganti">
+                            <form id="form-cltn_aktif">
 
                                 <?php 
                                     $id_user = $_SESSION['id_user'];
-                                    $user = mysqli_fetch_array(mysqli_query($koneksi, "select * from user where id_user = '$id_user'"));
                                     $user = mysqli_fetch_array(mysqli_query($koneksi, "select * from user where id_user = '$id_user'"));
 
                                 ?>
@@ -33,15 +32,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Lengkap Istri</label>
-                                    <div class="col-sm-12 col-md-5">
-                                        <input type="text" name="kontak" class="form-control" placeholder="Nama Lengkap Istri" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-2">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Kontak/ HP</label>
                                     <div class="col-sm-12 col-md-5">
-                                        <input type="text" name="kontak" class="form-control" value="<?php echo $user['kontak']; ?>" required>
+                                        <input type="text" name="kontak" class="form-control" value="<?php echo empty($user['kontak']) ? '' : $user['kontak'] ?>" required>
                                     </div>
                                 </div>
                                 <br>
@@ -61,11 +54,11 @@
 </div>
 </div>
 <script>
-     $('#form-karis_pengganti').submit(function(e) {
+     $('#form-cltn_aktif').submit(function(e) {
       e.preventDefault();
       $.ajax({
         type: 'POST',
-        url: 'user/mod_karis/crud_karis.php?pg=karis_pengganti',
+        url: 'user/mod_cltn/crud_cltn.php?pg=cltn_aktif',
         data: $(this).serialize(),
         success: function(data) {
           if (data == "ok") {
@@ -75,7 +68,7 @@
                 position: 'center'
               });
               setTimeout(function() {
-                window.location.replace('?pg=upload_karis_pengganti');
+                window.location.replace('?pg=upload_cltn_aktif');
               }, 500);
           }
           else {

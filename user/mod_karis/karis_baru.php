@@ -11,7 +11,6 @@
                                 <?php 
                                     $id_user = $_SESSION['id_user'];
                                     $user = mysqli_fetch_array(mysqli_query($koneksi, "select * from user where id_user = '$id_user'"));
-                                    $user = mysqli_fetch_array(mysqli_query($koneksi, "select * from user where id_user = '$id_user'"));
 
                                 ?>
                                 <div class="form-group row mb-2">
@@ -43,6 +42,13 @@
                                     <div class="col-sm-12 col-md-5">
                                         <input type="text" name="kontak" class="form-control" value="<?php echo $user['kontak']; ?>" required>
                                     </div>
+                                </div>
+                                <br>
+                                <div class="form-group row mb-2">
+                                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                                  <div class="col-sm-12 col-md-5">
+                                    <label><b>*Pastikan data anda di atas sudah diisi dengan benar</b></label>
+                                  </div>
                                 </div>
                                 
                                 <div class="form-group">

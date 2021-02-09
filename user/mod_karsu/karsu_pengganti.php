@@ -3,14 +3,13 @@
     <div class="col-12 col-sm-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>FORM PEMBUATAN KARTU ISTRI PENGGANTI KARENA HILANG</h4>
+                <h4>FORM PEMBUATAN KARTU SUAMI PENGGANTI KARENA HILANG</h4>
             </div>
             <div class="card-body">
-                            <form id="form-karis_pengganti">
+                            <form id="form-karsu_pengganti">
 
                                 <?php 
                                     $id_user = $_SESSION['id_user'];
-                                    $user = mysqli_fetch_array(mysqli_query($koneksi, "select * from user where id_user = '$id_user'"));
                                     $user = mysqli_fetch_array(mysqli_query($koneksi, "select * from user where id_user = '$id_user'"));
 
                                 ?>
@@ -33,15 +32,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Lengkap Istri</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Lengkap Suami</label>
                                     <div class="col-sm-12 col-md-5">
-                                        <input type="text" name="kontak" class="form-control" placeholder="Nama Lengkap Istri" required>
+                                        <input type="text" name="kontak" class="form-control" placeholder="Nama Lengkap Suami" required>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Kontak/ HP</label>
                                     <div class="col-sm-12 col-md-5">
-                                        <input type="text" name="kontak" class="form-control" value="<?php echo $user['kontak']; ?>" required>
+                                        <input type="text" name="kontak" class="form-control" value="<?php echo empty($user['kontak']) ? '' : $user['kontak'] ?>" required>
                                     </div>
                                 </div>
                                 <br>
@@ -51,7 +50,6 @@
                                     <label><b>*Pastikan data anda di atas sudah diisi dengan benar</b></label>
                                   </div>
                                 </div>
-                                
                                 <div class="form-group">
                                     <center><button id="btnlanjut" type="submit" class="btn btn-primary btn-lg mt-2">Lanjut</button></center>
                                 </div>
@@ -61,11 +59,11 @@
 </div>
 </div>
 <script>
-     $('#form-karis_pengganti').submit(function(e) {
+     $('#form-karsu_pengganti').submit(function(e) {
       e.preventDefault();
       $.ajax({
         type: 'POST',
-        url: 'user/mod_karis/crud_karis.php?pg=karis_pengganti',
+        url: 'user/mod_karsu/crud_karsu.php?pg=karsu_pengganti',
         data: $(this).serialize(),
         success: function(data) {
           if (data == "ok") {
@@ -75,7 +73,7 @@
                 position: 'center'
               });
               setTimeout(function() {
-                window.location.replace('?pg=upload_karis_pengganti');
+                window.location.replace('?pg=upload_karsu_pengganti');
               }, 500);
           }
           else {

@@ -10,6 +10,10 @@ $id = $_SESSION['id_user'];
         'kontak'              => $_POST['kontak'],
         'tempat_lahir'              => $_POST['tempat_lahir'],
         'tgl_lahir'              => $_POST['tgllahir'],
+        'alamat'              => $_POST['alamat'],
+        'golongan_darah'              => $_POST['golongan_darah'],
+        'jabatan'              => $_POST['jabatan'],
+        'eselon'              => $_POST['eselon'],
         'tmt_cpns'              => $_POST['tmt_cpns']
     ];
 

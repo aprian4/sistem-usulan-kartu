@@ -55,9 +55,18 @@
                                         <input type="text" name="kontak" class="form-control" value="<?php echo empty($user['kontak']) ? '' : $user['kontak'] ?>" required>
                                     </div>
                                 </div>
+                                <br>
+                                <div class="form-group row mb-2">
+                                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                                  <div class="col-sm-12 col-md-5">
+                                    <label><b>*Pastikan data anda di atas sudah diisi dengan benar</b></label>
+                                  </div>
+                                </div>
                                 
                                 <div class="form-group">
-                                    <center><button id="btnlanjut" type="submit" class="btn btn-primary btn-lg mt-2">Lanjut</button></center>
+                                    <center>
+                                    <a href="user/mod_karpeg/crud_karpeg.php?pg=batal&jenis=karpeg_pengganti" class="btn btn-danger btn-lg mt-2">Batal</a>
+                                    <button id="btnlanjut" type="submit" class="btn btn-primary btn-lg mt-2">Lanjut</button></center>
                                 </div>
                             </form>
     </div>
